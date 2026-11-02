@@ -1,0 +1,25 @@
+pipeline:
+  id: pipeline_bsandeep2003_Claire_testing_repo_build_22e4
+  name: pipeline_bsandeep2003_Claire_testing_repo_build_22e4
+  stages:
+    - name: Build
+      id: build
+      clone:
+        enabled: true
+      runtime: cloud
+      platform:
+        os: linux
+        arch: amd64
+      cache:
+        enabled: true
+      steps:
+        - name: Verify Clone
+          id: verify_clone
+          run:
+            shell: bash
+            script: |-
+              echo "Repository cloned successfully"
+              ls -la
+              echo "No build or test configuration detected in this repository"
+  tags:
+    onboarding: "true"
